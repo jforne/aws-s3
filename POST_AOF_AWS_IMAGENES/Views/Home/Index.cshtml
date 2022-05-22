@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model List<string>
+
+<a class="btn btn-success" asp-action="Create" asp-controller="Pokemon">Insertar Imagen</a>
+
+@if (Model != null)
+{
+    <div class="text-center">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>IMÁGENES</th>
+                    <th>NOMBRE</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>           
+                @foreach(string imagen  in Model)
+                {
+                    <tr>
+                        <td>
+                            <img src="https://s3-post-aof.s3.amazonaws.com/@imagen" alt="@imagen" width="250" />
+                        </td>
+                        <td>@imagen</td>
+                        <td><a class="btn btn-danger" asp-controller="Pokemon" asp-action="Delete" asp-route-img="@imagen">Delete</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
