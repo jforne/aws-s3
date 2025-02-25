@@ -33,8 +33,8 @@ namespace POST_AOF_AWS_IMAGENES.Controllers
         public async Task<IActionResult> Create(IFormFile img)
         {
             List<string> imagenes = await this.service.GetFilesAsync();
-            string extension = img.FileName.Split(".")[1];
-            string fileName = imagenes.Count + "." + extension;
+        
+            string fileName = img.FileName;
             using (Stream stream = img.OpenReadStream())
             {
                 await this.service.UploadFileAsync(stream, fileName);
