@@ -1,0 +1,15 @@
+﻿@model List<string>
+@{
+    ViewData["Title"] = "Archivos y Carpetas";
+}
+
+<h2>Listado de archivos y carpetas</h2>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item</li>
+    }
+</ul>
+
+<a asp-action="Create" asp-route-path="@ViewData["CurrentPath"]">Subir imagen</a>

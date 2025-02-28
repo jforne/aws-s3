@@ -3,7 +3,10 @@
 }
 @model List<string>
 
-<a class="btn btn-success" asp-action="Create" asp-controller="Pokemon">Insertar Imagen</a>
+<a class="btn btn-success" style="background-color: #FD801D; border-color: #FD801D; color: white;"
+   asp-action="Create" asp-controller="Visual" asp-route-path="@ViewData["CurrentPath"]">
+    Insertar Imagen
+</a>
 
 @if (Model != null)
 {
@@ -11,20 +14,30 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>IMÁGENES</th>
+                    <th>IMÁGENES Y CARPETAS</th>
                     <th>NOMBRE</th>
                     <th></th>
                 </tr>
             </thead>
-            <tbody>           
-                @foreach(string imagen  in Model)
+            <tbody>
+                @foreach (string item in Model)
                 {
                     <tr>
                         <td>
-                            <img src="https://cdn.visualnacert.com/@imagen" alt="@imagen" width="250" />
+                            @if (item.EndsWith("/"))
+                            {
+                                <!-- Es una carpeta -->
+                                <a href="@Url.Action("Index", "Home", new { path = item })">
+                                    📂 @item
+                                </a>
+                            }
+                            else
+                            {
+                                <!-- Es una imagen -->
+                                <img src="https://cdn.visualnacert.com/@item" alt="@item" width="250" />
+                            }
                         </td>
-                        <td>@imagen</td>
-                        
+                        <td>https://cdn.visualnacert.com/@item</td>
                     </tr>
                 }
             </tbody>

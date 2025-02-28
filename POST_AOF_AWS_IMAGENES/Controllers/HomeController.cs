@@ -21,14 +21,11 @@ namespace POST_AOF_AWS_IMAGENES.Controllers
             this.service = service;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string path = "")
         {
-            List<string> imagenes = await this.service.GetFilesAsync();
-            foreach(string imagen in imagenes)
-            {
-
-            }
-            return View(imagenes);
+            List<string> elementos = await this.service.GetFoldersAndFilesAsync(path);
+            ViewData["CurrentPath"] = path;
+            return View(elementos);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -38,3 +35,4 @@ namespace POST_AOF_AWS_IMAGENES.Controllers
         }
     }
 }
+

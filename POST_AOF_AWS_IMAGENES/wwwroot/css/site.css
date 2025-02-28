@@ -1,71 +1,133 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+﻿/* Estilo general */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #fdf8f3;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+main {
+    flex: 1;
+}
 
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-word;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #FD801D;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
 }
 
-/* Provide sufficient contrast against white background */
+    a.navbar-brand:hover {
+        color: #1b6ec2;
+    }
+
 a {
-  color: #0366d6;
+    color: #FD801D;
+    transition: color 0.3s ease;
+    text-decoration: none;
 }
 
+    a:hover {
+        color: #1b6ec2;
+        text-decoration: underline;
+    }
+
+/* Botones */
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #FD801D;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
+    .btn-primary:hover {
+        background-color: #1b6ec2;
+    }
+
+/* Navegación activa */
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #FD801D;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.nav-pills .nav-link:hover {
+    background-color: #1b6ec2;
 }
 
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
+/* Estilos del footer */
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+    background-color: #FD801D;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    padding: 15px 0;
+    font-weight: bold;
+    position: relative;
+    width: 100%;
+}
+
+    .footer a {
+        color: #fff;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+        .footer a:hover {
+            color: #1b6ec2;
+        }
+
+/* Estilos de tarjetas (para mostrar imágenes y contenido) */
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+/* Botón de aceptación de política */
+button.accept-policy {
+    font-size: 1rem;
+    background-color: #FD801D;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+    button.accept-policy:hover {
+        background-color: #1b6ec2;
+    }
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+
+    .btn-primary {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
 }
